@@ -1,0 +1,3 @@
+[submodule "edd-begateway-gatewayy/begateway-api-php"]
+	path = edd-begateway-gateway/begateway-api-php
+	url = https://github.com/beGateway/begateway-api-php.git

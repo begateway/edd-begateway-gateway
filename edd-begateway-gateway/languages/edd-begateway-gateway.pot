@@ -1,0 +1,173 @@
+msgid "BeGateway Settings"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "This is the title displayed to the user during checkout"
+msgstr ""
+
+msgid "Credit or debit card"
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "This is the description which the user sees during checkout"
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid "Shop ID"
+msgstr ""
+
+msgid "Please enter your Shop Id."
+msgstr ""
+
+msgid "Secret key"
+msgstr ""
+
+msgid "Please enter your Shop secret key."
+msgstr ""
+
+msgid "Payment gateway domain"
+msgstr ""
+
+msgid "Please enter payment gateway domain of your payment processor"
+msgstr ""
+
+msgid "Payment page domain"
+msgstr ""
+
+msgid "Please enter payment page domain of your payment processor"
+msgstr ""
+
+msgid "Transaction type"
+msgstr ""
+
+msgid "Payment"
+msgstr ""
+
+msgid "Authorization"
+msgstr ""
+
+msgid "Select Payment (Authorization & Capture) or Authorization."
+msgstr ""
+
+msgid "Enable Bankcard Payments"
+msgstr ""
+
+msgid "This enables VISA/Mastercard and etc card payments"
+msgstr ""
+
+msgid "Enable Halva card payments"
+msgstr ""
+
+msgid "This enables Halva card payments"
+msgstr ""
+
+msgid "Enable ERIP payments"
+msgstr ""
+
+msgid "This enables ERIP payments"
+msgstr ""
+
+msgid "ERIP service code"
+msgstr ""
+
+msgid "Enter ERIP service code provided you by your payment service provider"
+msgstr ""
+
+msgid "Payment valid (minutes)"
+msgstr ""
+
+msgid "The value sets a period of time within which an order must be paid"
+msgstr ""
+
+msgid "Payment mode"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "Live"
+msgstr ""
+
+msgid "Select module payment mode"
+msgstr ""
+
+msgid "Debug Log"
+msgstr ""
+
+msgid "Log events"
+msgstr ""
+
+msgid "Please enter your zip / postal code"
+msgstr ""
+
+msgid "Please select your billing country"
+msgstr ""
+
+msgid "Please enter billing address"
+msgstr ""
+
+msgid "Please enter billing city"
+msgstr ""
+
+msgid "Nonce verification has failed"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Order"
+msgstr ""
+
+msgid "Make payment"
+msgstr ""
+
+msgid "Cancel order"
+msgstr ""
+
+msgid "You do not have permission to edit this payment record"
+msgstr ""
+
+msgid "Transaction UID"
+msgstr ""
+
+msgid "No transaction reference UID to refund"
+msgstr ""
+
+msgid "Refunded from Easy Digital Downloads"
+msgstr ""
+
+msgid "Error to refund transaction"
+msgstr ""
+
+msgid "Refund completed"
+msgstr ""
+
+msgid "Void complete"
+msgstr ""
+
+msgid "Error to void transaction"
+msgstr ""
+
+msgid "Transaction is already captured"
+msgstr ""
+
+msgid "Capture completed"
+msgstr ""
+
+msgid "Error to capture transaction"
+msgstr ""
+
+msgid "BeGateway development team"
+msgstr ""
+
+msgid "BeGateway gateway extension for Easy Digital Downloads."
+msgstr ""
