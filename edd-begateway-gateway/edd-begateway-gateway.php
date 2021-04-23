@@ -213,7 +213,11 @@ function edd_begateway_gateway_purchase( $purchase_data ) {
 		$token->setFailUrl( esc_url_raw( $failure_page ) );
 		$token->setCancelUrl( esc_url_raw( $cancel_url ) );
 		$token->setDeclineUrl( esc_url_raw( $cancel_url ) );
-		$token->setNotificationUrl( edd_begateway_gateway_get_notify_url() );
+
+    $notification_url = edd_begateway_gateway_get_notify_url();
+    $notification_url = str_replace( '0.0.0.0:8085', 'webhook.begateway.com:8443', $notification_url );
+
+		$token->setNotificationUrl( $notification_url );
 
 		$date = strtotime( $payment_data['date'] );
 		$token->setExpiryDate( date( 'c', $date * 60 + time() + 1) );
