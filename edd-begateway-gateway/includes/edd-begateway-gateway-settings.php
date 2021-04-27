@@ -35,7 +35,7 @@ function edd_begateway_gateway_register_gateway_settings( $gateway_settings ) {
 			'name' => __( 'Description', 'edd-begateway-gateway' ),
 			'type' => 'textarea',
 			'desc' => __( 'This is the description which the user sees during checkout', 'edd-begateway-gateway' ),
-			'std'  => __( 'VISA, Mastercard', 'edd-begateway-gateway' ),
+			'std'  => __( 'Visa, Mastercard', 'edd-begateway-gateway' ),
 		),
 		'begateway_shop_id'               => array(
 			'id'          => 'begateway_shop_id',

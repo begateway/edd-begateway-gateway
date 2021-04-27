@@ -32,7 +32,24 @@ if ( ! function_exists( 'add_action' ) ) {
 function edd_begateway_gateway_textdomain() {
 	load_plugin_textdomain( 'edd-begateway-gateway', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
-add_action( 'init', 'edd_begateway_gateway_textdomain' );
+add_action( 'plugins_loaded', 'edd_begateway_gateway_textdomain' );
+
+/**
+ * Defines location of *.mo files for edd-begateway-gateway textdomain.
+ *
+ * @param string $mofile - Default *.mo file location path.
+ * @param string $domain - Text domain name.
+ *
+ * @return string Path to *.mo file.
+ */
+function edd_begateway_gateway_define_mo_files( $mofile, $domain ) {
+	if ( 'edd-begateway-gateway' === $domain && false !== strpos( $mofile, WP_LANG_DIR . '/plugins/' ) ) {
+		$locale = apply_filters( 'plugin_locale', determine_locale(), $domain );
+		$mofile = WP_PLUGIN_DIR . '/' . dirname( plugin_basename( __FILE__ ) ) . '/languages/' . $domain . '-' . $locale . '.mo';
+	}
+	return $mofile;
+}
+add_filter( 'load_textdomain_mofile', 'edd_begateway_gateway_define_mo_files', 10, 2 );
 
 /**
  * Adds EDD BeGateway gateway templates dir to the list of template paths.

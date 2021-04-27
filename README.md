@@ -28,8 +28,6 @@ This will bring up a page displaying all the options that you can select to admi
   * set _Admin Title_ e.g. _beGateway_
   * set _Description_ e.g. _Visa, Mastercard_. You are free to put all payment cards supported by your acquiring payment agreement.
   * Transaction type: _Authorization_ or _Payment_
-  * Check _Enable admin capture etc_ if you want to allow administrators
-    to issue refunds or captures from WooCommerce backend
   * Check _Debug Log_ if you want to log messages between _beGateway_
     and WooCommerce
 
@@ -109,7 +107,6 @@ Use the following test card to make failed test payment:
   * задайте _Заголовок для администратора_ e.g. _beGateway_
   * задайте _Описание_ e.g. _Visa, Mastercard_. You are free to put all payment cards supported by your acquiring payment agreement.
   * задайте _Тип транзакции_: _Авторизация_ или _Платеж_
-  * отметьте _Включить администратору возможность списания/отмены авторизации/возврат_ если хотите посылать списания/возвраты/отмену авторизации из панели администратора WooCommerce
   * отметьте _Журнал отладки_ если хотите журналировать события модуля
 
 В следующих полях:
