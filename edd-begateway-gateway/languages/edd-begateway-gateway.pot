@@ -171,3 +171,78 @@ msgstr ""
 
 msgid "BeGateway gateway extension for Easy Digital Downloads."
 msgstr ""
+
+msgid "Capture success"
+msgstr ""
+
+msgid "Please wait..."
+msgstr ""
+
+msgid "BeGateway payment gateway is disabled"
+msgstr ""
+
+msgid "Payment ID is not set"
+msgstr ""
+
+msgid "Order already cancelled"
+msgstr ""
+
+msgid "Cancel success"
+msgstr ""
+
+msgid "Capture partly success"
+msgstr ""
+
+msgid "Refund success"
+msgstr ""
+
+msgid "Payment is cancelled"
+msgstr ""
+
+msgid "Remaining balance"
+msgstr ""
+
+msgid "Total authorized"
+msgstr ""
+
+msgid "Total captured"
+msgstr ""
+
+msgid "Total refunded"
+msgstr ""
+
+msgid "You are about to CAPTURE this paymen"
+msgstr ""
+
+msgid "Cancel transaction"
+msgstr ""
+
+msgid "Partly capture"
+msgstr ""
+
+msgid "Capture amount"
+msgstr ""
+
+msgid "Capture specified amount"
+msgstr ""
+
+msgid "Partly refund"
+msgstr ""
+
+msgid "Refund amount"
+msgstr ""
+
+msgid "Refund specified amount"
+msgstr ""
+
+msgid "Payment method"
+msgstr ""
+
+msgid "Card number"
+msgstr ""
+
+msgid "Card brand"
+msgstr ""
+
+msgid "You are about to CANCEL this payment"
+msgstr ""

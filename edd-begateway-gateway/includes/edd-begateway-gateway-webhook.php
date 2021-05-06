@@ -87,22 +87,31 @@ function edd_begateway_gateway_ipn_webhook_handler() {
 
 		if ( in_array( $type, array( 'payment', 'authorization' ), true ) ) {
 			if ( $webhook->isSuccess() ) {
-
 				if ( 'authorization' === $type ) {
-					edd_update_payment_status( $payment_id, 'preapproval' );
+					edd_update_payment_status( $payment_id, 'processing' );
 					update_post_meta( $payment_id, '_begateway_transaction_captured', 'no' );
 					update_post_meta( $payment_id, '_begateway_transaction_captured_amount', 0 );
 				} else {
-					edd_update_payment_status( $payment_id, 'complete' );
+					edd_update_payment_status( $payment_id, 'processing' );
 					update_post_meta( $payment_id, '_begateway_transaction_captured', 'yes' );
 					update_post_meta( $payment_id, '_begateway_transaction_captured_amount', $amount );
 				}
-
 			} elseif ( $webhook->isFailed() ) {
 				edd_update_payment_status( $payment_id, 'failed' );
 				edd_insert_payment_note( $payment_id, $webhook->getMessage() );
 			}
-			update_post_meta( $payment_id, '_begateway_transaction_payment_method', $webhook->getPaymentMethod() );
+			// Add card data.
+			$payment_method = $webhook->getPaymentMethod();
+
+			if ( $payment_method && isset( $webhook->getResponse()->transaction->$payment_method->token ) ) {
+				update_post_meta( $payment_id, '_begateway_transaction_payment_method', $payment_method );
+				// Save card data.
+				$card = $webhook->getResponse()->transaction->$payment_method;
+				update_post_meta( $payment_id, '_begateway_card_last_4', $card->last_4 );
+				update_post_meta( $payment_id, '_begateway_card_brand', 'master' !== $card->brand ? $card->brand : 'mastercard' );
+			}
+
+			update_post_meta( $payment_id, '_begateway_transaction_refunded_amount', 0 );
 			update_post_meta( $payment_id, '_begateway_transaction_id', $transaction_uid );
 		}
 	} else {

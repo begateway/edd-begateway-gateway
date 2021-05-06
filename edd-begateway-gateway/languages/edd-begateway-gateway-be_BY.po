@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2021-04-18 10:04+0000\n"
-"PO-Revision-Date: 2021-04-18 11:07+0000\n"
+"PO-Revision-Date: 2021-05-06 09:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: Belarusian (Belarus)\n"
 "Language: be_BY\n"
@@ -24,14 +24,41 @@ msgstr "Каманда распрацоўкі BeGateway"
 msgid "BeGateway gateway extension for Easy Digital Downloads."
 msgstr "Пашырае Easy Digital Downloads плацёжным шлюзам BeGateway."
 
+msgid "BeGateway payment gateway is disabled"
+msgstr "Плацежная сістэма BeGateway адключаная"
+
 msgid "BeGateway Settings"
 msgstr "Налады BeGateway"
 
 msgid "Cancel order"
 msgstr "Адмяніць заказ"
 
+msgid "Cancel success"
+msgstr "Адмена паспяховая"
+
+msgid "Cancel transaction"
+msgstr "Адмяніць аперацыю"
+
+msgid "Capture amount"
+msgstr "Сума спісання"
+
 msgid "Capture completed"
 msgstr "Спісанне паспяхова"
+
+msgid "Capture partly success"
+msgstr "Спісанне паспяхова"
+
+msgid "Capture specified amount"
+msgstr "Спісаць сродкі"
+
+msgid "Capture success"
+msgstr "Спісанне сродкаў паспяхова"
+
+msgid "Card brand"
+msgstr "Тып карткі"
+
+msgid "Card number"
+msgstr "Нумар карты"
 
 msgid "Credit or debit card"
 msgstr "Крэдытная альбо дэбетавая карта"
@@ -88,11 +115,29 @@ msgstr "Памылка праверкі nonce"
 msgid "Order"
 msgstr "Парадак"
 
+msgid "Order already cancelled"
+msgstr "Заказ ужо адменены"
+
+msgid "Partly capture"
+msgstr "Спісанне сродкаў"
+
+msgid "Partly refund"
+msgstr "Зварот сродкаў"
+
 msgid "Payment"
 msgstr "Аплата"
 
 msgid "Payment gateway domain"
 msgstr "Дамен плацежнага шлюза"
+
+msgid "Payment ID is not set"
+msgstr "Ідэнтыфікатар плацяжу не ўстаноўлены"
+
+msgid "Payment is cancelled"
+msgstr "Аплата адменена"
+
+msgid "Payment method"
+msgstr "Метад аплаты"
 
 msgid "Payment mode"
 msgstr "Рэжым аплаты "
@@ -127,11 +172,26 @@ msgstr "Калі ласка, увядзіце паштовы індэкс"
 msgid "Please select your billing country"
 msgstr "Выберыце краіну, дзе выстаўлены рахункі "
 
+msgid "Please wait..."
+msgstr "Калі ласка, пачакайце…"
+
+msgid "Refund amount"
+msgstr "Сума звароту"
+
 msgid "Refund completed"
 msgstr "Вяртанне завершана"
 
+msgid "Refund specified amount"
+msgstr "Вярнуць сродкі"
+
+msgid "Refund success"
+msgstr "Вяртанне сродкаў паспяхова"
+
 msgid "Refunded from Easy Digital Downloads"
 msgstr "Вяртаецца з Easy Digital Downloads"
+
+msgid "Remaining balance"
+msgstr "Баланс"
 
 msgid "Secret key"
 msgstr "Сакрэтны ключ"
@@ -172,6 +232,15 @@ msgstr ""
 msgid "Title"
 msgstr "Назва"
 
+msgid "Total authorized"
+msgstr "Усяго"
+
+msgid "Total captured"
+msgstr "Усяго спісана"
+
+msgid "Total refunded"
+msgstr "Усяго вернута"
+
 msgid "Transaction is already captured"
 msgstr "Аплата ўжо спісана"
 
@@ -183,6 +252,12 @@ msgstr "UID транзакцыі"
 
 msgid "Void complete"
 msgstr "Адмена паспяхова"
+
+msgid "You are about to CANCEL this payment"
+msgstr "Вы збіраецеся адмяніць гэты плацеж"
+
+msgid "You are about to CAPTURE this paymen"
+msgstr "Вы збіраецеся спісаць гэтую суму"
 
 msgid "You do not have permission to edit this payment record"
 msgstr "У вас няма дазволу рэдагаваць гэты запіс плацяжоў"

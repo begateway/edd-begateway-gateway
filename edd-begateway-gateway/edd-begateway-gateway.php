@@ -16,6 +16,7 @@ require_once dirname( __FILE__ ) . '/includes/edd-begateway-gateway-settings.php
 require_once dirname( __FILE__ ) . '/includes/edd-begateway-gateway-helpers.php';
 require_once dirname( __FILE__ ) . '/includes/edd-begateway-gateway-webhook.php';
 require_once dirname( __FILE__ ) . '/includes/edd-begateway-gateway-transaction-actions.php';
+require_once dirname( __FILE__ ) . '/includes/edd-begateway-gateway-ajax.php';
 
 
 // Make sure we don't expose any info if called directly.
@@ -256,8 +257,8 @@ function edd_begateway_gateway_purchase( $purchase_data ) {
 		if ( $begateway_settings['erip_enabled'] ) {
 			$erip = new \BeGateway\PaymentMethod\Erip(
 				array(
-					'order_id'       => $payment_data['purchase_key'],
-					'account_number' => $payment_data['purchase_key'],
+					'order_id'       => $payment,
+					'account_number' => $payment,
 					'service_no'     => $begateway_settings['erip_service_no'],
 				)
 			);
@@ -274,7 +275,7 @@ function edd_begateway_gateway_purchase( $purchase_data ) {
 		if ( ! $response->isSuccess() ) {
 			// Add some error message.
 			edd_begateway_gateway_log( 'BeGateway token error:  ' . $response->getMessage() . PHP_EOL . ' -- ' . __FILE__ . ' - Line:' . __LINE__ );
-			return;
+			edd_send_back_to_checkout();
 		}
 		$payment_url = $response->getRedirectUrlScriptName();
 		enqueue_widget_scripts(
@@ -316,31 +317,62 @@ function edd_begateway_gateway_add_order_detail( $payment_id ) {
 	if ( EDD_BEGATEWAY_NAME !== $gateway ) {
 		return;
 	}
+	$settled_amount       = get_post_meta( $payment_id, '_begateway_transaction_captured_amount', true );
+	$refunded_amount      = get_post_meta( $payment_id, '_begateway_transaction_refunded_amount', true );
+	$transaction_captured = get_post_meta( $payment_id, '_begateway_transaction_captured', true );
 
-	$transaction_id_value = get_post_meta( $payment_id, '_begateway_transaction_id', true );
-	$transaction_id       = $transaction_id_value ? $transaction_id_value : '------';
-	echo '<div class="edd-admin-box-inside">
-					<p>
-						<span class="label">' . esc_html( __( 'Transaction UID', 'edd-begateway-gateway' ) ) . ':</span>
-						<span>' . esc_html( $transaction_id ) . '</span>
-					</p>
-				</div>
-	';
+	$metabox_vars = array(
+		'payment_id'        => $payment_id,
+		'settled_amount'    => $settled_amount ? $settled_amount : 0,
+		'refunded_amount'   => $refunded_amount ? $refunded_amount : 0,
+		'authorized_amount' => edd_get_payment_amount( $payment_id ),
+		'refunded'          => get_post_meta( $payment_id, '_begateway_transaction_refunded', true ),
+		'voided'            => get_post_meta( $payment_id, '_begateway_transaction_voided', true ),
+		'status'            => edd_get_payment_status( $payment_id ),
+		'is_captured'       => 'yes' === $transaction_captured ? true : false,
+		'transaction_id'    => get_post_meta( $payment_id, '_begateway_transaction_id', true ),
+		'payment_method'    => get_post_meta( $payment_id, '_begateway_transaction_payment_method', true ),
+		'card_last_4'       => get_post_meta( $payment_id, '_begateway_card_last_4', true ),
+		'card_brand'        => get_post_meta( $payment_id, '_begateway_card_brand', true ),
+		'can_refund'        => edd_begateway_gateway_can_payment_method( 'refund', $payment_id ),
+		'can_capture'       => edd_begateway_gateway_can_payment_method( 'capture', $payment_id ),
+		'can_cancel'        => edd_begateway_gateway_can_payment_method( 'cancel', $payment_id ),
+	);
+	set_query_var( 'vars', $metabox_vars );
+	// Add JavaScript handler.
+	edd_begateway_gateway_add_admin_js();
+	edd_get_template_part( 'edd-begateway-gateway', 'metabox-order' );
 }
+add_action( 'edd_view_order_details_update_before', 'edd_begateway_gateway_add_order_detail' );
 
-add_action( 'edd_view_order_details_payment_meta_after', 'edd_begateway_gateway_add_order_detail' );
 
 /**
- * Adds EDD BeGateway gateway messages to admin notices.
+ * Adds custom js scripts to admin part of the website.
+ *
+ * @return void
  */
-function edd_begateway_gateway_messages() {
-	$messages = get_transient( 'edd_begateway_gateway_messages' );
-	if ( false !== $messages && ! empty( $messages ) ) {
-		foreach ( $messages as $type => $message ) {
-			echo '<div class="' . esc_html( $type ) . ' is-dismissible"><p><strong>' . esc_html( $message ) . '</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
-		}
-	}
-	delete_transient( 'edd_begateway_gateway_messages' );
+function edd_begateway_gateway_add_admin_js() {
+	wp_register_script(
+		'edd-begateway-gateway-js-input-mask',
+		plugin_dir_url( __FILE__ ) . 'js/jquery.inputmask.js',
+		array( 'jquery' ),
+		'5.0.3'
+	);
+	wp_register_script(
+		'edd-begateway-gateway-admin-js',
+		plugin_dir_url( __FILE__ ) . 'js/admin.js',
+		array(
+			'jquery',
+			'edd-begateway-gateway-js-input-mask',
+		)
+	);
 
+	// Localize the script.
+	$translation_array = array(
+		'ajax_url'  => admin_url( 'admin-ajax.php' ),
+		'text_wait' => __( 'Please wait...', 'edd-begateway-gateway' ),
+	);
+	wp_localize_script( 'edd-begateway-gateway-admin-js', 'BeGateway_Admin', $translation_array );
+	wp_enqueue_script( 'edd-begateway-gateway-admin-js' );
 }
-add_action( 'admin_notices', 'edd_begateway_gateway_messages' );
+

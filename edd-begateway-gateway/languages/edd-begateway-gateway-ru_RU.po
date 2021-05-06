@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2021-04-27 05:50+0000\n"
-"PO-Revision-Date: 2021-04-27 06:48+0000\n"
+"PO-Revision-Date: 2021-05-06 08:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -26,14 +26,41 @@ msgstr ""
 "Расширение Easy Digital Downloads для платежного шлюза BeGateway.\n"
 "\n"
 
+msgid "BeGateway payment gateway is disabled"
+msgstr "Платежная система BeGateway отключена"
+
 msgid "BeGateway Settings"
 msgstr "Настройки BeGateway"
 
 msgid "Cancel order"
 msgstr "Отменить заказ"
 
+msgid "Cancel success"
+msgstr "Отмена успешна"
+
+msgid "Cancel transaction"
+msgstr "Отменить операцию"
+
+msgid "Capture amount"
+msgstr "Сумма списания"
+
 msgid "Capture completed"
 msgstr "Списание успешно"
+
+msgid "Capture partly success"
+msgstr "Списание успешно"
+
+msgid "Capture specified amount"
+msgstr "Списать указанную сумму"
+
+msgid "Capture success"
+msgstr "Списание успешно"
+
+msgid "Card brand"
+msgstr "Тип карты"
+
+msgid "Card number"
+msgstr "Номер карты"
 
 msgid "Credit or debit card"
 msgstr "Кредитная или дебетовая карта:"
@@ -89,11 +116,29 @@ msgstr "Проверка одноразового номера не удалас
 msgid "Order"
 msgstr "Заказа"
 
+msgid "Order already cancelled"
+msgstr "Заказ уже отменен"
+
+msgid "Partly capture"
+msgstr "Списание"
+
+msgid "Partly refund"
+msgstr "Возврат"
+
 msgid "Payment"
 msgstr "Платеж"
 
 msgid "Payment gateway domain"
 msgstr "Домен платежного шлюза"
+
+msgid "Payment ID is not set"
+msgstr "Отсутствует ID заказа"
+
+msgid "Payment is cancelled"
+msgstr "Заказ отменен"
+
+msgid "Payment method"
+msgstr "Способ оплаты"
 
 msgid "Payment mode"
 msgstr "Режим работы"
@@ -129,11 +174,26 @@ msgstr "Пожалуйста, введите свой почтовый инде�
 msgid "Please select your billing country"
 msgstr "Пожалуйста, выберите страну выставления счета"
 
+msgid "Please wait..."
+msgstr "Пожалуйста, подождите..."
+
+msgid "Refund amount"
+msgstr "Сумма возврата"
+
 msgid "Refund completed"
+msgstr "Возврат успешен"
+
+msgid "Refund specified amount"
+msgstr "Возврат указанной суммы"
+
+msgid "Refund success"
 msgstr "Возврат успешен"
 
 msgid "Refunded from Easy Digital Downloads"
 msgstr "Возврат через Easy Digital Downloads "
+
+msgid "Remaining balance"
+msgstr "Остаток"
 
 msgid "Secret key"
 msgstr "Секретный ключ"
@@ -175,6 +235,15 @@ msgstr "Это заголовок, отображаемый пользовате
 msgid "Title"
 msgstr "Название"
 
+msgid "Total authorized"
+msgstr "Всего авторизировано"
+
+msgid "Total captured"
+msgstr "Всего списано"
+
+msgid "Total refunded"
+msgstr "Всего возвращено"
+
 msgid "Transaction is already captured"
 msgstr "Деньги по операции уже списаны"
 
@@ -186,6 +255,12 @@ msgstr "UID транзакции"
 
 msgid "Void complete"
 msgstr "Отмена успешна"
+
+msgid "You are about to CANCEL this payment"
+msgstr "Вы осуществляете отмену данной операции"
+
+msgid "You are about to CAPTURE this paymen"
+msgstr "Вы осуществляете списание данной операции"
 
 msgid "You do not have permission to edit this payment record"
 msgstr "У вас нет прав на редактирование этой платежной записи"
