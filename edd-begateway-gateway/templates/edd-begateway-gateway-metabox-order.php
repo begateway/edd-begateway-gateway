@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<span class='begateway-balance__currency'>
 				&nbsp;
 			</span>
-			<?php echo wc_price( $vars['refunded_amount'] ); ?>
+			<?php echo $vars['refunded_amount']; ?>
 		</span>
 	</li>
 	<li style='font-size: xx-small'>&nbsp;</li>
@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php if ( $vars['settled_amount'] === 0 && ! in_array( $vars['status'], array( 'cancelled', 'created' ), true ) && ! $order_is_cancelled && $vars['can_capture'] ) : ?>
 		<li class="edd-admin-box-inside begateway-full-width">
 			<a class="button button-primary" data-action="begateway_capture" id="begateway_capture" data-nonce="<?php echo wp_create_nonce( 'begateway' ); ?>" data-order-id="<?php echo $vars['payment_id'] ?>" data-confirm="<?php echo __( 'You are about to CAPTURE this payment', 'edd-begateway-gateway' ); ?>">
-				<?php echo sprintf( __( 'Capture full amount (%s)', 'edd-begateway-gateway' ), wc_price( $vars['authorized_amount'] ) ); ?>
+				<?php echo sprintf( __( 'Capture full amount (%s)', 'edd-begateway-gateway' ), $vars['authorized_amount'] ); ?>
 			</a>
 		</li>
 	<?php endif; ?>
