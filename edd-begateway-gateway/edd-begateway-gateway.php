@@ -271,6 +271,8 @@ function edd_begateway_gateway_purchase( $purchase_data ) {
 
 		$token->additional_data->setContract( array( 'recurring', 'card_on_file' ) );
 
+		edd_begateway_gateway_log( 'BeGateway token request:  ' . print_r( $token, true ) . PHP_EOL . ' -- ' . __FILE__ . ' - Line:' . __LINE__ );
+
 		$response = $token->submit();
 		if ( ! $response->isSuccess() ) {
 			// Add some error message.
@@ -375,4 +377,3 @@ function edd_begateway_gateway_add_admin_js() {
 	wp_localize_script( 'edd-begateway-gateway-admin-js', 'BeGateway_Admin', $translation_array );
 	wp_enqueue_script( 'edd-begateway-gateway-admin-js' );
 }
-

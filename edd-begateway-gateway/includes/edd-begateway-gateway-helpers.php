@@ -17,9 +17,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function edd_begateway_gateway_log( $message ) {
 	if ( edd_get_option( 'begateway_debug' ) ) {
-		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-			error_log( $message );
-		}
+    edd_debug_log( $message );
 	}
 }
 
