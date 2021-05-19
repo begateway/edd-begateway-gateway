@@ -206,7 +206,7 @@ function edd_begateway_gateway_purchase( $purchase_data ) {
 		$token->money->setCurrency( $payment_data['currency'] );
 		$token->money->setAmount( $payment_data['price'] );
 
-		$token->setDescription( __( 'Order', 'edd-begateway-gateway' ) . ' # ' . $payment_data['purchase_key'] );
+		$token->setDescription( __( 'Order', 'edd-begateway-gateway' ) . ' # ' . $payment );
 		$token->setTrackingId( $payment_data['purchase_key'] );
 
 		$card_data = $purchase_data['card_info'];
