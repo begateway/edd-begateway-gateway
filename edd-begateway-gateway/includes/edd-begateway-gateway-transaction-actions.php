@@ -124,6 +124,7 @@ function edd_begateway_gateway_capture( $payment, $amount ) {
 		if ( $response->isSuccess() ) {
 			update_post_meta( $payment_id, '_begateway_transaction_captured', 'yes' );
 			update_post_meta( $payment_id, '_begateway_transaction_captured_amount', $amount );
+			update_post_meta( $payment_id, '_begateway_transaction_id', $response->getUid() );
 			edd_begateway_gateway_log( 'Info: Capture was successful' . PHP_EOL . ' -- ' . __FILE__ . ' - Line:' . __LINE__ );
 			$note = __( 'Capture completed', 'edd-begateway-gateway' ) . PHP_EOL .
 							__( 'Transaction UID: ', 'edd-begateway-gateway' ) . $response->getUid();
