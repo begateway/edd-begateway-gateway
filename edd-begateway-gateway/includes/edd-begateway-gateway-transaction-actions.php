@@ -42,6 +42,7 @@ function edd_begateway_gateway_refund( $payment, $amount ) {
 				update_post_meta( $payment_id, '_begateway_transaction_refunded', 'yes' );
 			}
 			edd_begateway_gateway_log( 'Info: Refund was successful' . PHP_EOL . ' -- ' . __FILE__ . ' - Line:' . __LINE__ );
+			edd_update_payment_status( $payment_id, 'refunded' );
 			$note = __( 'Refund completed', 'edd-begateway-gateway' ) . PHP_EOL .
 							__( 'Transaction UID: ', 'edd-begateway-gateway' ) . $response->getUid();
 			$payment->add_note( $note );
@@ -126,6 +127,7 @@ function edd_begateway_gateway_capture( $payment, $amount ) {
 			edd_begateway_gateway_log( 'Info: Capture was successful' . PHP_EOL . ' -- ' . __FILE__ . ' - Line:' . __LINE__ );
 			$note = __( 'Capture completed', 'edd-begateway-gateway' ) . PHP_EOL .
 							__( 'Transaction UID: ', 'edd-begateway-gateway' ) . $response->getUid();
+
 			$payment->add_note( $note );
 			return true;
 		} else {

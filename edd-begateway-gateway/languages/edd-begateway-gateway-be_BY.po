@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2021-04-18 10:04+0000\n"
-"PO-Revision-Date: 2021-05-06 09:06+0000\n"
+"PO-Revision-Date: 2021-05-18 18:50+0000\n"
 "Last-Translator: \n"
 "Language-Team: Belarusian (Belarus)\n"
 "Language: be_BY\n"
@@ -44,6 +44,9 @@ msgstr "Сума спісання"
 
 msgid "Capture completed"
 msgstr "Спісанне паспяхова"
+
+msgid "Capture full amount (%s)"
+msgstr "Спісаць поўную суму (%s)"
 
 msgid "Capture partly success"
 msgstr "Спісанне паспяхова"
