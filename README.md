@@ -49,7 +49,7 @@ Now the module is configured.
 
 Tested and developed with:
 
-  * Wordress 5.x
+  * Wordpress 5.x
   * Easy Digital Downloads: 2.10.x
   * PHP 7.x
 
@@ -127,7 +127,7 @@ Use the following test card to make failed test payment:
 
 Разработанно и протестированно с:
 
-  * Wordress 5.x
+  * Wordpress 5.x
   * Easy Digital Downloads: 2.10.x
   * PHP 7.x
 
